@@ -1,6 +1,8 @@
 package dps.markdown;
 
+import dps.logging.HasLogger;
 import dps.webapplication.resources.Resources;
+import org.commonmark.Extension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -15,10 +17,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @ApplicationScoped
-public class Markdown {
+public class Markdown implements HasLogger {
 
     @Inject
     Resources resources;
@@ -27,8 +31,21 @@ public class Markdown {
         return CDI.current().select(Markdown.class).get();
     }
 
-    static final Parser PARSER = Parser.builder().build();
-    static final HtmlRenderer RENDERER = HtmlRenderer.builder().build();
+    private Parser PARSER = Parser.builder().build();
+    private HtmlRenderer RENDERER = HtmlRenderer.builder().build();
+
+    List<Extension> extensions = new ArrayList<>();
+
+    public void addExtension(Extension extension)
+    {
+        extensions.add(extension);
+    }
+
+    public void rebuild()
+    {
+        PARSER = Parser.builder().extensions(extensions).build();
+        RENDERER = HtmlRenderer.builder().extensions(extensions).build();
+    }
 
     private void writeMd(Node document, Writer writer)
     {
@@ -47,6 +64,7 @@ public class Markdown {
     }
 
     public void writeMdContents(String name, Date updated, Writer out, ParseSource parseSource) throws IOException, JspException {
+
         StringWriter stringWriter = new StringWriter();
 
         Reader cacheReader = this.getCacheReader(name, updated);
