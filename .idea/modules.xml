@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dps_markdown.iml" filepath="$PROJECT_DIR$/dps_markdown.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dps.markdown.iml" filepath="$PROJECT_DIR$/dps.markdown.iml" />
     </modules>
   </component>
 </project>

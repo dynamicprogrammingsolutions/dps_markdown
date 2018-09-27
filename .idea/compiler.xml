@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dps.markdown" />
         <module name="dps_commons" />
-        <module name="dps_markdown" />
         <module name="dpslogging" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="dps.markdown" target="1.8" />
       <module name="dps_commons" target="1.8" />
       <module name="dps_markdown" target="1.8" />
       <module name="dpslogging" target="1.8" />
