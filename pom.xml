@@ -4,7 +4,7 @@
 
     <groupId>dps.markdown</groupId>
     <artifactId>dps.markdown</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>DPS Markdown</name>
     <description>Markdown processing for webapplications using jsp tags</description>
@@ -177,7 +177,7 @@
         <connection>scm:git:git://github.com/dynamicprogrammingsolutions/dps_markdown.git</connection>
         <developerConnection>scm:git:ferenci84@github.com:dynamicprogrammingsolutions/dps_markdown.git</developerConnection>
         <url>https://github.com/dynamicprogrammingsolutions/dps_markdown</url>
-        <tag>dps.markdown-1.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencies>
